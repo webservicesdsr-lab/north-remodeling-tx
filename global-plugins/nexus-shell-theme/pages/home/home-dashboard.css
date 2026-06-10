@@ -1,0 +1,75 @@
+/**
+ * Remodel North Texas logged-in dashboard preview.
+ */
+
+.rntx-dashboard {
+    padding: 28px 0 60px;
+    background: #f7fbff;
+}
+
+.rntx-dashboard-hero {
+    padding: 22px;
+    border-radius: 24px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.22), transparent 12rem),
+        linear-gradient(135deg, var(--rntx-navy), var(--rntx-blue));
+}
+
+.rntx-dashboard-hero p {
+    margin: 0 0 6px;
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 850;
+}
+
+.rntx-dashboard-hero h1 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.rntx-dashboard-hero span {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.rntx-dashboard-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.rntx-dashboard-grid article {
+    padding: 18px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: var(--rntx-shadow-soft);
+}
+
+.rntx-dashboard-grid p {
+    margin: 0 0 6px;
+    color: var(--rntx-blue);
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.rntx-dashboard-grid h2 {
+    margin: 0 0 8px;
+    color: var(--rntx-navy);
+}
+
+.rntx-progress {
+    height: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--rntx-soft);
+}
+
+.rntx-progress span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--rntx-blue);
+}

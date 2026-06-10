@@ -1,0 +1,1 @@
+tree -a -I "node_modules|vendor|.git" > project-tree.txt

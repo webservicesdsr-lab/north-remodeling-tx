@@ -1,0 +1,82 @@
+.
+├── .DS_Store
+├── README.md
+├── global-plugins
+│   ├── .DS_Store
+│   ├── knx-global-auth
+│   │   ├──  knx-auth-core.php
+│   │   ├── .DS_Store
+│   │   ├── README.md
+│   │   ├── inc
+│   │   │   ├── .DS_Store
+│   │   │   ├── core
+│   │   │   │   ├── pages-installer.php
+│   │   │   │   ├── rest
+│   │   │   │   │   ├── knx-rest-guard.php
+│   │   │   │   │   ├── knx-rest-response.php
+│   │   │   │   │   └── knx-rest-wrapper.php
+│   │   │   │   └── session-cleaner.php
+│   │   │   ├── functions
+│   │   │   │   ├── helpers.php
+│   │   │   │   └── security.php
+│   │   │   └── modules
+│   │   │       ├── admin
+│   │   │       │   ├── admin-menu.php
+│   │   │       │   ├── admin-settings.php
+│   │   │       │   ├── admin-style.css
+│   │   │       │   └── admin-users.php
+│   │   │       └── auth
+│   │   │           ├── auth-emails.php
+│   │   │           ├── auth-handler.php
+│   │   │           ├── auth-redirects.php
+│   │   │           ├── auth-shortcode.php
+│   │   │           ├── auth-style.css
+│   │   │           ├── auth-toast.php
+│   │   │           ├── email-verification.php
+│   │   │           └── reset-shortcode.php
+│   │   ├── knx-auth-core.zip
+│   │   └── knx-global-auth-schema.sql
+│   ├── knx-shell
+│   │   ├── .DS_Store
+│   │   ├── README.md
+│   │   ├── inc
+│   │   │   ├── .DS_Store
+│   │   │   ├── functions
+│   │   │   │   └── helpers.php
+│   │   │   └── modules
+│   │   │       ├── .DS_Store
+│   │   │       ├── admin
+│   │   │       │   ├── admin-menu.php
+│   │   │       │   ├── admin-script.js
+│   │   │       │   ├── admin-settings.php
+│   │   │       │   └── admin-style.css
+│   │   │       └── navbar
+│   │   │           ├── navbar-script.js
+│   │   │           ├── navbar-style.css
+│   │   │           └── navbar.php
+│   │   └── knx-shell.php
+│   └── nexus-shell-theme
+│       ├── .DS_Store
+│       ├── 404.php
+│       ├── archive.php
+│       ├── assets
+│       │   └── img
+│       │       └── nexus-404.svg
+│       ├── comments.php
+│       ├── footer.php
+│       ├── front-page.php
+│       ├── functions.php
+│       ├── header.php
+│       ├── index.php
+│       ├── page.php
+│       ├── pages
+│       │   ├── home-page.php
+│       │   ├── home.css
+│       │   └── home.js
+│       ├── search.php
+│       ├── single.php
+│       └── style.css
+├── project-tree.md
+└── project-tree.txt
+
+20 directories, 60 files

@@ -1,0 +1,393 @@
+/**
+ * Remodel North Texas responsive rules.
+ * Tablet, desktop, large desktop, touch states, reduced motion.
+ */
+
+@media (min-width: 760px) {
+    .rntx-home {
+        padding-bottom: 0;
+        background: #ffffff;
+    }
+
+    .rntx-shell {
+        width: min(100% - 48px, var(--rntx-shell));
+    }
+
+    .rntx-hero {
+        padding: 0;
+        background: #ffffff;
+    }
+
+    .rntx-hero--magazine {
+        min-height: 640px;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .rntx-hero--magazine .rntx-hero__photo,
+    .rntx-hero--magazine .rntx-hero__wash {
+        height: 500px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__photo {
+        background-size: cover;
+        background-position: center right;
+    }
+
+    .rntx-hero--magazine .rntx-hero__wash {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.99) 0%,
+                rgba(255, 255, 255, 0.96) 27%,
+                rgba(255, 255, 255, 0.67) 48%,
+                rgba(255, 255, 255, 0.22) 73%,
+                rgba(255, 255, 255, 0.02) 100%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.04) 0%,
+                rgba(255, 255, 255, 0.1) 58%,
+                rgba(255, 255, 255, 1) 100%
+            );
+    }
+
+    .rntx-hero--magazine .rntx-hero__shell {
+        min-height: 640px;
+        display: grid;
+        align-items: start;
+        padding-top: 56px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__content {
+        display: grid;
+        grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+        align-content: start;
+        column-gap: 48px;
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .rntx-hero--magazine .rntx-hero__content::before {
+        grid-column: 1;
+        margin-bottom: 20px;
+        min-height: 30px;
+        padding: 0 14px;
+        font-size: 0.74rem;
+    }
+
+    .rntx-hero--magazine .rntx-hero__title {
+        grid-column: 1;
+        max-width: 600px;
+        font-size: clamp(3.6rem, 4.65vw, 5.3rem);
+        line-height: 1.035;
+        letter-spacing: -0.038em;
+    }
+
+    .rntx-hero--magazine .rntx-hero__copy {
+        grid-column: 1;
+        max-width: 500px;
+        margin-top: 22px;
+        font-size: 1.18rem;
+        line-height: 1.52;
+        color: rgba(17, 35, 66, 0.76);
+    }
+
+    .rntx-hero--magazine .rntx-hero__actions {
+        grid-column: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 280px) minmax(0, 220px);
+        gap: 18px;
+        max-width: 520px;
+        margin-top: 34px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__primary,
+    .rntx-hero--magazine .rntx-hero__secondary {
+        min-height: 58px;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+
+    .rntx-hero--magazine .rntx-project-card {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: none;
+        margin-top: 36px;
+        padding: 28px 36px 22px;
+        border-radius: 24px;
+        border-color: rgba(7, 27, 70, 0.08);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow:
+            0 24px 70px rgba(7, 27, 70, 0.13),
+            inset 0 1px 0 rgba(255, 255, 255, 0.94);
+    }
+
+    .rntx-hero--magazine .rntx-project-card__head {
+        margin-bottom: 18px;
+    }
+
+    .rntx-hero--magazine .rntx-project-card__head h2 {
+        font-size: 1.32rem;
+        letter-spacing: -0.035em;
+    }
+
+    .rntx-hero--magazine .rntx-project-card__head span {
+        display: none;
+    }
+
+    .rntx-hero--magazine .rntx-project-search__grid {
+        grid-template-columns:
+            minmax(260px, 1.15fr)
+            minmax(250px, 1.15fr)
+            minmax(210px, 0.85fr)
+            minmax(220px, 0.82fr);
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .rntx-hero--magazine .rntx-project-search__input,
+    .rntx-hero--magazine .rntx-project-search__select,
+    .rntx-hero--magazine .rntx-project-search__button {
+        min-height: 58px;
+        border-radius: 12px;
+        font-size: 1rem;
+    }
+
+    .rntx-hero--magazine .rntx-project-search__button {
+        padding: 0 18px;
+    }
+
+    .rntx-hero--magazine .rntx-project-trust-row {
+        justify-content: center;
+        gap: clamp(34px, 7vw, 94px);
+        margin-top: 22px;
+        font-size: 0.95rem;
+    }
+
+    .rntx-section {
+        padding: 42px 0;
+    }
+
+    .rntx-section--services {
+        padding-top: 0;
+        margin-top: -12px;
+    }
+
+    .rntx-section-head h2 {
+        font-size: 1.55rem;
+    }
+
+    .rntx-service-row {
+        grid-auto-flow: initial;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 14px;
+        overflow: visible;
+    }
+
+    .rntx-service-card__media {
+        height: 106px;
+    }
+
+    .rntx-service-card h3 {
+        font-size: 0.92rem;
+    }
+
+    .rntx-service-card p {
+        min-height: 55px;
+    }
+
+    .rntx-contractor-row {
+        grid-auto-columns: 320px;
+        gap: 14px;
+    }
+
+    .rntx-material-row {
+        grid-auto-columns: 150px;
+        gap: 12px;
+    }
+
+    .rntx-estimate-panel {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        padding: 26px;
+    }
+
+    .rntx-local-panel {
+        padding: 26px;
+    }
+
+    .rntx-sticky-guest-cta {
+        display: none;
+    }
+
+    .rntx-dashboard-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .rntx-modal {
+        align-items: center;
+        justify-items: center;
+    }
+
+    .rntx-modal__dialog {
+        max-width: 460px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .rntx-hero--magazine {
+        min-height: 660px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__photo,
+    .rntx-hero--magazine .rntx-hero__wash {
+        height: 520px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__shell {
+        min-height: 660px;
+        padding-top: 62px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__content {
+        grid-template-columns: minmax(0, 650px) minmax(0, 1fr);
+        column-gap: 64px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__title {
+        max-width: 650px;
+        font-size: clamp(4.25rem, 4.9vw, 5.9rem);
+        line-height: 1.035;
+    }
+
+    .rntx-hero--magazine .rntx-hero__copy {
+        max-width: 540px;
+        font-size: 1.22rem;
+    }
+
+    .rntx-hero--magazine .rntx-project-card {
+        margin-top: 38px;
+        padding: 30px 40px 24px;
+    }
+
+    .rntx-hero--magazine .rntx-project-search__grid {
+        grid-template-columns:
+            minmax(300px, 1.15fr)
+            minmax(300px, 1.15fr)
+            minmax(230px, 0.82fr)
+            minmax(250px, 0.82fr);
+    }
+
+    .rntx-service-row {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .rntx-contractor-row {
+        grid-auto-flow: initial;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+    }
+
+    .rntx-material-row {
+        grid-auto-flow: initial;
+        grid-template-columns: repeat(5, 1fr);
+        overflow: visible;
+    }
+}
+
+@media (min-width: 1360px) {
+    .rntx-hero--magazine {
+        min-height: 680px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__photo,
+    .rntx-hero--magazine .rntx-hero__wash {
+        height: 535px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__shell {
+        min-height: 680px;
+        padding-top: 68px;
+    }
+
+    .rntx-hero--magazine .rntx-hero__content {
+        grid-template-columns: minmax(0, 700px) minmax(0, 1fr);
+    }
+
+    .rntx-hero--magazine .rntx-project-card {
+        margin-top: 42px;
+    }
+
+    .rntx-hero--magazine .rntx-project-search__grid {
+        grid-template-columns:
+            minmax(340px, 1.2fr)
+            minmax(320px, 1.15fr)
+            minmax(250px, 0.86fr)
+            minmax(280px, 0.86fr);
+    }
+}
+
+@media (max-width: 759px) {
+    .rntx-hero--magazine .rntx-project-card__head h2 {
+        font-size: 1.15rem;
+    }
+
+    .rntx-hero--magazine .rntx-project-card__head span {
+        display: inline-flex;
+    }
+
+    .rntx-hero--magazine .rntx-project-search__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rntx-hero--magazine .rntx-project-field {
+        display: none;
+    }
+
+    .rntx-hero--magazine .rntx-project-field:first-child {
+        display: grid;
+    }
+
+    .rntx-hero--magazine .rntx-project-search__button {
+        min-height: 50px;
+    }
+
+    .rntx-hero--magazine .rntx-project-trust-row {
+        display: none;
+    }
+}
+
+@media (hover: none) {
+    .rntx-btn:hover {
+        transform: none;
+    }
+
+    .rntx-category-chip:active,
+    .rntx-service-card:active,
+    .rntx-pro-card:active,
+    .rntx-material-card:active,
+    .rntx-sticky-guest-cta button:active {
+        transform: scale(0.985);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.001ms !important;
+        animation-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-rntx-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+}

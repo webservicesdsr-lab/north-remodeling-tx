@@ -1,0 +1,477 @@
+/**
+ * Remodel North Texas homepage public sections.
+ * Services, contractors, materials, estimate CTA, local areas, sticky guest CTA.
+ */
+
+.rntx-section {
+    padding: 24px 0;
+    background: #ffffff;
+}
+
+.rntx-section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.rntx-section-head p {
+    margin: 0 0 7px;
+    color: var(--rntx-blue);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.rntx-section-head h2 {
+    margin: 0;
+    color: var(--rntx-navy);
+    font-size: 1.25rem;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.rntx-section-head a,
+.rntx-section-head button {
+    border: 0;
+    color: var(--rntx-blue);
+    background: transparent;
+    font-size: 0.82rem;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.rntx-service-row,
+.rntx-contractor-row,
+.rntx-material-row {
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.rntx-service-row::-webkit-scrollbar,
+.rntx-contractor-row::-webkit-scrollbar,
+.rntx-material-row::-webkit-scrollbar {
+    display: none;
+}
+
+.rntx-service-row {
+    grid-auto-columns: 158px;
+    gap: 12px;
+    padding-bottom: 8px;
+}
+
+.rntx-service-card {
+    overflow: hidden;
+    border: 1px solid var(--rntx-line);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: var(--rntx-shadow-soft);
+    scroll-snap-align: start;
+}
+
+.rntx-service-card__media {
+    position: relative;
+    height: 92px;
+    background:
+        linear-gradient(135deg, rgba(7, 94, 234, 0.1), rgba(7, 27, 70, 0.06)),
+        linear-gradient(135deg, #e9f2ff, #ffffff);
+}
+
+.rntx-service-card__media--kitchen {
+    background: linear-gradient(135deg, #f3e8d9, #e6f0ff);
+}
+
+.rntx-service-card__media--bathroom {
+    background: linear-gradient(135deg, #eaf8ff, #ffffff);
+}
+
+.rntx-service-card__media--roofing {
+    background: linear-gradient(135deg, #dfe8f6, #ffffff);
+}
+
+.rntx-service-card__media--flooring {
+    background: linear-gradient(135deg, #f5eadb, #ffffff);
+}
+
+.rntx-service-card__media--additions {
+    background: linear-gradient(135deg, #edf4ff, #ffffff);
+}
+
+.rntx-service-card__media--painting {
+    background: linear-gradient(135deg, #f8fbff, #ffffff);
+}
+
+.rntx-service-mini-icon {
+    position: absolute;
+    left: 12px;
+    bottom: -20px;
+    width: 46px;
+    height: 46px;
+    background: #ffffff;
+}
+
+.rntx-service-card__body {
+    position: relative;
+    padding: 30px 14px 14px;
+}
+
+.rntx-service-card h3 {
+    min-height: 38px;
+    margin: 0 0 8px;
+    color: var(--rntx-navy);
+    font-size: 0.93rem;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+.rntx-service-card p {
+    min-height: 42px;
+    margin: 0;
+    color: var(--rntx-muted);
+    font-size: 0.74rem;
+    line-height: 1.32;
+}
+
+.rntx-service-card button {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    color: var(--rntx-blue);
+    background: transparent;
+    font-weight: 900;
+}
+
+/* Contractors */
+
+.rntx-contractor-row {
+    grid-auto-columns: 282px;
+    gap: 12px;
+    padding-bottom: 8px;
+}
+
+.rntx-pro-card {
+    padding: 14px;
+    border: 1px solid var(--rntx-line);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: var(--rntx-shadow-soft);
+    scroll-snap-align: start;
+}
+
+.rntx-pro-card__top {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: start;
+}
+
+.rntx-pro-avatar {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 35% 20%, rgba(255, 255, 255, 0.46), transparent 1.7rem),
+        linear-gradient(135deg, var(--rntx-blue), var(--rntx-navy));
+    font-weight: 900;
+}
+
+.rntx-pro-name-row {
+    display: flex;
+    align-items: start;
+    gap: 7px;
+}
+
+.rntx-pro-name-row h3 {
+    margin: 0;
+    color: var(--rntx-navy);
+    font-size: 0.9rem;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+}
+
+.rntx-pro-name-row span {
+    display: inline-flex;
+    padding: 4px 7px;
+    border-radius: 999px;
+    color: var(--rntx-blue);
+    background: rgba(7, 94, 234, 0.09);
+    font-size: 0.62rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.rntx-pro-card p {
+    margin: 4px 0 0;
+    color: var(--rntx-muted);
+    font-size: 0.76rem;
+}
+
+.rntx-save-btn {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(7, 94, 234, 0.2);
+    border-radius: 12px;
+    color: var(--rntx-blue);
+    background: #ffffff;
+}
+
+.rntx-save-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.rntx-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 11px;
+}
+
+.rntx-rating-row strong {
+    color: var(--rntx-navy);
+}
+
+.rntx-rating-row span {
+    color: #f4a700;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+}
+
+.rntx-rating-row small {
+    color: var(--rntx-muted);
+}
+
+.rntx-pro-card ul {
+    display: grid;
+    gap: 5px;
+    margin: 12px 0;
+    padding: 0;
+    list-style: none;
+    color: var(--rntx-muted);
+    font-size: 0.74rem;
+}
+
+.rntx-pro-card li {
+    position: relative;
+    padding-left: 13px;
+}
+
+.rntx-pro-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--rntx-blue);
+}
+
+.rntx-pro-card .rntx-btn {
+    width: 100%;
+}
+
+/* Materials */
+
+.rntx-material-row {
+    grid-auto-columns: 126px;
+    gap: 10px;
+    padding-bottom: 8px;
+}
+
+.rntx-material-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 124px;
+    border-radius: 16px;
+    background: #192a43;
+    color: #ffffff;
+    box-shadow: var(--rntx-shadow-soft);
+    scroll-snap-align: start;
+}
+
+.rntx-material-card div {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(7, 27, 70, 0.1), rgba(7, 27, 70, 0.78)),
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.24) 0,
+            rgba(255, 255, 255, 0.24) 7px,
+            rgba(255, 255, 255, 0.08) 7px,
+            rgba(255, 255, 255, 0.08) 14px
+        );
+}
+
+.rntx-material-card--quartz div {
+    background:
+        linear-gradient(180deg, rgba(7, 27, 70, 0.05), rgba(7, 27, 70, 0.76)),
+        linear-gradient(135deg, #e8edf3, #ffffff);
+}
+
+.rntx-material-card--lvp div {
+    background:
+        linear-gradient(180deg, rgba(7, 27, 70, 0.05), rgba(7, 27, 70, 0.78)),
+        repeating-linear-gradient(90deg, #8c6a4d 0 14px, #a9815e 14px 28px);
+}
+
+.rntx-material-card--tile div {
+    background:
+        linear-gradient(180deg, rgba(7, 27, 70, 0.05), rgba(7, 27, 70, 0.78)),
+        repeating-linear-gradient(45deg, #dadde2 0 18px, #c5cbd3 18px 36px);
+}
+
+.rntx-material-card--cabinetry div {
+    background:
+        linear-gradient(180deg, rgba(7, 27, 70, 0.05), rgba(7, 27, 70, 0.78)),
+        linear-gradient(135deg, #c9b08e, #f3e7d7);
+}
+
+.rntx-material-card h3 {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.78rem;
+    line-height: 1.12;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.34);
+}
+
+/* Estimate CTA */
+
+.rntx-estimate-panel {
+    display: grid;
+    gap: 18px;
+    padding: 18px;
+    border-radius: 20px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.24), transparent 8rem),
+        linear-gradient(135deg, var(--rntx-blue), var(--rntx-blue-3));
+    box-shadow: var(--rntx-shadow);
+}
+
+.rntx-estimate-panel p {
+    margin: 0 0 4px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.rntx-estimate-panel h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.45rem;
+    line-height: 1.06;
+    letter-spacing: -0.045em;
+}
+
+.rntx-estimate-panel span {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+/* Local areas */
+
+.rntx-local-panel {
+    padding: 18px;
+    border: 1px solid var(--rntx-line);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: var(--rntx-shadow-soft);
+}
+
+.rntx-local-panel p {
+    margin: 0 0 6px;
+    color: var(--rntx-blue);
+    font-size: 0.74rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.rntx-local-panel h2 {
+    margin: 0 0 14px;
+    color: var(--rntx-navy);
+    font-size: 1.35rem;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+}
+
+.rntx-city-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.rntx-city-cloud span {
+    padding: 8px 10px;
+    border-radius: 999px;
+    color: var(--rntx-navy);
+    background: var(--rntx-soft);
+    border: 1px solid rgba(7, 94, 234, 0.1);
+    font-size: 0.78rem;
+    font-weight: 850;
+}
+
+/* Sticky guest CTA */
+
+.rntx-sticky-guest-cta {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 9px;
+    padding: 9px;
+    border: 1px solid rgba(7, 27, 70, 0.12);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.93);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 55px rgba(7, 27, 70, 0.22);
+    transform: translateY(125%);
+    transition: transform 260ms ease;
+}
+
+.rntx-sticky-guest-cta.is-visible {
+    transform: translateY(0);
+}
+
+.rntx-sticky-guest-cta button {
+    min-height: 46px;
+    border-radius: 15px;
+    border: 1px solid rgba(7, 94, 234, 0.22);
+    font-weight: 900;
+}
+
+.rntx-sticky-guest-cta button:first-child {
+    color: var(--rntx-blue);
+    background: #ffffff;
+}
+
+.rntx-sticky-guest-cta button:last-child {
+    color: #ffffff;
+    background: var(--rntx-blue);
+}
