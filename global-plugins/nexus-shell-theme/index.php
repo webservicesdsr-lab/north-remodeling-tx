@@ -1,9 +1,9 @@
 <?php
 /**
  * North Texas Remodel — Index Entry Point
- *
+
  * Main entry file for the North Texas Remodel frontend system.
- * Routes to custom NTR pages based on query parameters.
+ * Routes to custom NTR pages based on query parameters.  
  */
 
 get_header();
