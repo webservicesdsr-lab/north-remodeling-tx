@@ -20,6 +20,7 @@
 │   │   │   │   ├── helpers.php
 │   │   │   │   └── security.php
 │   │   │   └── modules
+│   │   │       ├── .DS_Store
 │   │   │       ├── admin
 │   │   │       │   ├── admin-menu.php
 │   │   │       │   ├── admin-settings.php
@@ -70,8 +71,13 @@
 │       ├── index.php
 │       ├── page.php
 │       ├── pages
+│       │   ├── home
+│       │   │   ├── home-base.css
+│       │   │   ├── home-dashboard.css
+│       │   │   ├── home-hero.css
+│       │   │   ├── home-responsive.css
+│       │   │   └── home-sections.css
 │       │   ├── home-page.php
-│       │   ├── home.css
 │       │   └── home.js
 │       ├── search.php
 │       ├── single.php
@@ -79,4 +85,4 @@
 ├── project-tree.md
 └── project-tree.txt
 
-20 directories, 60 files
+21 directories, 65 files

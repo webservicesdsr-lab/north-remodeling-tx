@@ -459,14 +459,22 @@
     transform: translateY(0);
 }
 
-.rntx-sticky-guest-cta button {
+.rntx-sticky-guest-cta button,
+.rntx-sticky-guest-cta a {
     min-height: 46px;
     border-radius: 15px;
     border: 1px solid rgba(7, 94, 234, 0.22);
     font-weight: 900;
 }
 
-.rntx-sticky-guest-cta button:first-child {
+.rntx-sticky-guest-cta a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.rntx-sticky-guest-cta a:first-child {
     color: var(--rntx-blue);
     background: #ffffff;
 }

@@ -21,6 +21,30 @@ $display_name  = ($current_user && !empty($current_user->display_name)) ? $curre
  */
 $rntx_home_version = time();
 
+/**
+ * Hero slideshow images.
+ * Replace attachment_id values with images from the WordPress Media Library.
+ * If attachment_id is 0, the fallback URL will be used.
+ */
+$rntx_hero_slides = array(
+    array(
+        'attachment_id' => 0,
+        'url'           => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=82',
+    ),
+    array(
+        'attachment_id' => 0,
+        'url'           => 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=2000&q=82',
+    ),
+    array(
+        'attachment_id' => 0,
+        'url'           => 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=82',
+    ),
+    array(
+        'attachment_id' => 0,
+        'url'           => 'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=2000&q=82',
+    ),
+);
+
 $services = array(
     array(
         'name'        => 'Kitchen Remodeling',
@@ -143,7 +167,28 @@ $cities = array(
     <?php if (!$is_logged_in) : ?>
 
         <section class="rntx-hero rntx-hero--magazine" aria-labelledby="rntx-hero-title">
-            <div class="rntx-hero__photo" aria-hidden="true"></div>
+            <div class="rntx-hero__photo" aria-hidden="true">
+                <?php foreach ($rntx_hero_slides as $slide) : ?>
+                    <?php
+                    $slide_id  = isset($slide['attachment_id']) ? absint($slide['attachment_id']) : 0;
+                    $slide_url = $slide_id > 0 ? wp_get_attachment_image_url($slide_id, 'full') : '';
+
+                    if (!$slide_url && !empty($slide['url'])) {
+                        $slide_url = $slide['url'];
+                    }
+
+                    if (!$slide_url) {
+                        continue;
+                    }
+                    ?>
+
+                    <span
+                        class="rntx-hero__slide"
+                        style="--rntx-hero-slide-image: url('<?php echo esc_url($slide_url); ?>');"
+                    ></span>
+                <?php endforeach; ?>
+            </div>
+
             <div class="rntx-hero__wash" aria-hidden="true"></div>
 
             <div class="rntx-shell rntx-hero__shell">
@@ -172,28 +217,31 @@ $cities = array(
 
                     <div class="rntx-project-card" data-rntx-discovery-card>
                         <div class="rntx-project-card__head">
-                            <h2>Plan Your Project in Minutes</h2>
+                            <div>
+                                <h2>Project Inspiration</h2>
+                                <p>Explore finished remodels, design ideas, and project styles to help plan your next space.</p>
+                            </div>
                             <span>New</span>
                         </div>
 
-                        <form class="rntx-project-search" data-rntx-estimate-entry>
+                        <form class="rntx-project-search" data-rntx-project-entry>
                             <label class="screen-reader-text" for="rntx-project-search">
-                                Plan your project
+                                Search project inspiration
                             </label>
 
                             <div class="rntx-project-search__grid">
-                                <label class="rntx-project-field" for="rntx-project-search">
+                                <label class="rntx-project-field rntx-project-field--search" for="rntx-project-search">
                                     <span class="rntx-project-field__icon rntx-project-field__icon--goal" aria-hidden="true"></span>
                                     <input
                                         id="rntx-project-search"
                                         class="rntx-project-search__input"
                                         type="search"
-                                        placeholder="What are you planning?"
+                                        placeholder="Search kitchens, bathrooms, flooring, outdoor spaces..."
                                         autocomplete="off"
                                     >
                                 </label>
 
-                                <label class="rntx-project-field" for="rntx-project-type">
+                                <label class="rntx-project-field rntx-project-field--type" for="rntx-project-type">
                                     <span class="rntx-project-field__icon rntx-project-field__icon--type" aria-hidden="true"></span>
                                     <select id="rntx-project-type" class="rntx-project-search__select">
                                         <option value="">Project Type</option>
@@ -206,20 +254,8 @@ $cities = array(
                                     </select>
                                 </label>
 
-                                <label class="rntx-project-field" for="rntx-project-zip">
-                                    <span class="rntx-project-field__icon rntx-project-field__icon--zip" aria-hidden="true"></span>
-                                    <input
-                                        id="rntx-project-zip"
-                                        class="rntx-project-search__input"
-                                        type="text"
-                                        inputmode="numeric"
-                                        placeholder="Your ZIP Code"
-                                        autocomplete="postal-code"
-                                    >
-                                </label>
-
-                                <button class="rntx-project-search__button" type="submit">
-                                    Get Started
+                                <button class="rntx-project-search__button" type="button" data-rntx-scroll-target="#rntx-services">
+                                    Explore Projects
                                 </button>
                             </div>
                         </form>
@@ -227,17 +263,17 @@ $cities = array(
                         <div class="rntx-project-trust-row" aria-label="Project benefits">
                             <span>
                                 <i class="rntx-project-trust-icon rntx-project-trust-icon--estimate" aria-hidden="true"></i>
-                                Free estimates
+                                Free to browse
                             </span>
 
                             <span>
                                 <i class="rntx-project-trust-icon rntx-project-trust-icon--check" aria-hidden="true"></i>
-                                No obligation
+                                Real project ideas
                             </span>
 
                             <span>
                                 <i class="rntx-project-trust-icon rntx-project-trust-icon--local" aria-hidden="true"></i>
-                                Local experts
+                                Local inspiration
                             </span>
                         </div>
                     </div>
@@ -400,7 +436,7 @@ $cities = array(
                     </div>
 
                     <button class="rntx-btn rntx-btn--light" type="button" data-rntx-open-estimate>
-                        Save & Continue
+                        View Estimate Section
                     </button>
                 </div>
             </div>
@@ -422,9 +458,9 @@ $cities = array(
         </section>
 
         <div class="rntx-sticky-guest-cta" data-rntx-sticky-cta>
-            <button type="button" data-rntx-scroll-target="#rntx-services">
+            <a href="<?php echo esc_url(home_url('/login')); ?>">
                 Sign In
-            </button>
+            </a>
 
             <button type="button" data-rntx-open-estimate>
                 Get Estimate
@@ -478,7 +514,7 @@ $cities = array(
     <?php endif; ?>
 </main>
 
-<div class="rntx-modal" data-rntx-modal hidden>
+<div id="rntx-home-modal" class="rntx-modal" data-rntx-modal hidden>
     <div class="rntx-modal__backdrop" data-rntx-close-modal></div>
 
     <div class="rntx-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="rntx-modal-title">

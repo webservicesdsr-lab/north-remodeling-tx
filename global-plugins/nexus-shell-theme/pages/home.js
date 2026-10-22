@@ -14,19 +14,22 @@
     const qs = (selector, scope = root) => scope.querySelector(selector);
     const qsa = (selector, scope = root) => Array.from(scope.querySelectorAll(selector));
 
-    const modal = qs('[data-rntx-modal]');
-    const modalTitle = qs('[data-rntx-modal-title]');
-    const modalText = qs('[data-rntx-modal-text]');
-    const modalKicker = qs('[data-rntx-modal-kicker]');
-    const stickyCta = qs('[data-rntx-mobile-cta]');
+    const modal = document.getElementById('rntx-home-modal');
+    const modalTitle = modal ? qs('[data-rntx-modal-title]', modal) : null;
+    const modalText = modal ? qs('[data-rntx-modal-text]', modal) : null;
+    const modalKicker = modal ? qs('[data-rntx-modal-kicker]', modal) : null;
+    const stickyCta = qs('[data-rntx-sticky-cta]');
+    let modalTrigger = null;
 
     function openModal(options = {}) {
         if (!modal) {
             return;
         }
 
-        if (modalKicker && options.kicker) {
-            modalKicker.textContent = options.kicker;
+        modalTrigger = document.activeElement;
+
+        if (modalKicker) {
+            modalKicker.textContent = options.kicker || 'Coming soon';
         }
 
         if (modalTitle && options.title) {
@@ -53,6 +56,10 @@
 
         modal.hidden = true;
         document.documentElement.classList.remove('rntx-modal-open');
+
+        if (modalTrigger) {
+            modalTrigger.focus({ preventScroll: true });
+        }
     }
 
     function scrollToTarget(selector) {
@@ -266,13 +273,40 @@
             return;
         }
 
+        qsa('button[data-rntx-modal-title][data-rntx-modal-text]').forEach((button) => {
+            button.addEventListener('click', () => {
+                openModal({
+                    title: button.getAttribute('data-rntx-modal-title'),
+                    text: button.getAttribute('data-rntx-modal-text')
+                });
+            });
+        });
+
         qsa('[data-rntx-close-modal]', modal).forEach((button) => {
             button.addEventListener('click', closeModal);
         });
 
         document.addEventListener('keydown', (event) => {
+            if (modal.hidden) {
+                return;
+            }
+
             if (event.key === 'Escape' && !modal.hidden) {
                 closeModal();
+            }
+
+            if (event.key === 'Tab') {
+                const buttons = qsa('button', modal);
+                const first = buttons[0];
+                const last = buttons[buttons.length - 1];
+
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
             }
         });
     }
